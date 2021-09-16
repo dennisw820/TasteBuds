@@ -34,35 +34,35 @@ app.get('/signin', function(req,res){
 });
 app.post('/signin', function(req,res, length){
     // const connection = require('connection');
-    const connection = mysql.createConnection({
-        host: process.env.HOST,
-        user: process.env.USER,
-        password: process.env.PASSWORD,
-        database: process.env.DATABASE
-    });
-    var userName = req.body.userName;
-    var password = req.body.password;
+    // const connection = mysql.createConnection({
+    //     host: process.env.HOST,
+    //     user: process.env.USER,
+    //     password: process.env.PASSWORD,
+    //     database: process.env.DATABASE
+    // });
+    // var userName = req.body.userName;
+    // var password = req.body.password;
     
-    if(userName && password) {
-        console.log(connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [userName, password], function(error, results, fields) {
-            if (results) {
-                req.session.loggedin = true;
-                req.session.username = userName;
-                res.redirect('welcome.ejs');
-            }
-            else {
-                console.log('Incorrect username and/or password.');
-            }
-        }));
-    }
-    else {
-        console.log('Please enter username and password.');
-    }
+    // if(userName && password) {
+    //     console.log(connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [userName, password], function(error, results, fields) {
+    //         if (results) {
+    //             req.session.loggedin = true;
+    //             req.session.username = userName;
+    //             res.redirect('welcome.ejs');
+    //         }
+    //         else {
+    //             console.log('Incorrect username and/or password.');
+    //         }
+    //     }));
+    // }
+    // else {
+    //     console.log('Please enter username and password.');
+    // }
     
 });
 
 // Home Route
-app.get('https//www.hidden-temple-93562.herokuapp.com/', function(req, res) {
+app.get('/welcome', function(req, res) {
     res.render('welcome.ejs');
 });
 
