@@ -10,11 +10,11 @@ const app = express();
 require('dotenv').config();
 
 app.set('view engine', 'ejs');
-app.use(session({
-    secret: process.env.SECRET,
-    resave: true,
-    saveUninitialized: true
-}));
+// app.use(session({
+//     secret: process.env.SECRET,
+//     resave: true,
+//     saveUninitialized: true
+// }));
 app.use(bodyParser.urlencoded({extended: true}));
 // require static for static routes
 app.use(express.static('public'));
