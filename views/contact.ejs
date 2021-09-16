@@ -1,0 +1,28 @@
+<%- include('partials/navbar.ejs') %>
+    <!--Contact Beginning-->
+    <div id="contact" class="p-5 bg-success">
+        <h1 id="" class="">Contact Us</h1>
+        <p id="" class="text-center">We'd like to hear from you!</p>
+        <form id="" class="input-group" action="/contact" method="POST" autocapitalize="on" autocomplete="on">
+            <div class="input-group m-3">
+                <input name="fName" id="" class="form-control rounded" type="text" placeholder="First Name" maxlength="70" title="Please enter your first name." required> 
+                <br>
+                <input name="lName" id="" class="form-control rounded" type="text" placeholder="Last Name" maxlength="70" title="Please enter your last name." required>
+            </div>
+            <div class="input-group m-3 row">
+                <input name="email" id="" class="form-control rounded" type="email" placeholder="Email" title="Please enter your email." required>
+                <input name="tel" id="" class="form-control rounded" type="tel" placeholder="Phone" maxlength="10" title="Please enter your phone number." required>
+            </div>
+            <div class="input-group m-3">
+                <input name="contact-sub" id="contact-sub" class="form-control rounded" type="text" placeholder="Subject" maxlength="255" title="Please include a subject for your message." required>
+            </div>
+            <div class="input-group m-3">
+                <textarea name="contact-msg" id="contact-msg" class="form-control rounded" style="border: 1px black solid; " rows="10" placeholder="Message" maxlength="255" title="Please write a message to submit." required></textarea>
+            </div>
+            <div class="input-group m-3">
+                <input name="contact-btn" id="contact-btn" class="btn btn-block btn-primary rounded" type="submit" value="Send Message">
+            </div>
+        </form>
+    </div>
+    <!--Contact Ending-->
+<%- include('partials/footer.ejs') %>
