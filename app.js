@@ -62,7 +62,7 @@ app.post('/signin', function(req,res, length){
 });
 
 // Home Route
-app.get('/welcome', function(req, res) {
+app.get('https//www.hidden-temple-93562.herokuapp.com/', function(req, res) {
     res.render('welcome.ejs');
 });
 
