@@ -1,4 +1,5 @@
-.env
+/*.env
 outline.txt
-node_modules
-Procfile
+/node_modules
+npm-debug.log
+.DS_Store
