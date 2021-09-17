@@ -18,6 +18,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 // require static for static routes
 app.use(express.static('public'));
+app.use(express.static('private'));
 
 
 // Landing Route
@@ -133,6 +134,8 @@ app.post('/', function(req,res){
 
 // Location
 app.get('/location', (req, res) => {
+    // var map = require('./private/Javascript/map.js');
+    // var location = require('./private/Javascript/location.js')
     res.render('location');
 });
 app.post('', (req, res) => {
