@@ -94,6 +94,13 @@ app.post('/', function(req,res){
 
 });
 
+// Profile
+app.get('/profile', function(req,res){
+    res.render('profile.ejs');
+});
+app.post('/', function(req, res){
+
+});
 // Menu
 app.get('/food-menu', function(req,res){
     var dishes = [
