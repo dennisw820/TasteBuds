@@ -1,0 +1,23 @@
+<%- include ('partials/navbar.ejs') %>
+    <div class="container">
+        <div class="row m-4">
+            <h1 class="">Write a Review</h1>
+            <form action="/post-review" method="POST" class="">
+                <div class="col">
+                    <button class="btn-outline-success"></button>
+                    <button class="btn-outline-success"></button>
+                    <button class="btn-outline-success"></button>
+                    <button class="btn-outline-success"></button>
+                    <button class="btn-outline-success"></button>
+                </div>
+                <div class="">
+                    <label for="review-img">Upload review image</label>
+                    <input name="review-img" type="file" class="rounded">
+                </div>
+                <input name="review-title" type="text" class="p-3 rounded" placeholder="Title" required>
+                <textarea name="review" id="" cols="30" rows="10" class="p-3 rounded" placeholder="Write your review here" required></textarea>
+                <button class="btn-primary rounded">Post Review</button>
+            </form>
+        </div>
+    </div>
+<%- include ('partials/footer.ejs') %> 

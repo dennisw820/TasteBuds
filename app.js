@@ -133,13 +133,15 @@ app.post('/', function(req,res){
 });
 
 // Location
-app.get('/location', (req, res) => {
+app.get('/find-location', (req, res) => {
     // var map = require('./private/Javascript/map.js');
     // var location = require('./private/Javascript/location.js')
-    res.render('location');
+    res.render('findLocation.ejs');
 });
-app.post('', (req, res) => {
-
+app.post('/location', (req, res) => {
+    var location = req.body.location;
+    
+    res.render('location.ejs');
 });
 
 // Help
@@ -154,8 +156,15 @@ app.post('/questions', (req, res) => {
 app.get('/reviews', (req, res) => {
     res.render('reviews.ejs');
 });
-app.post('/', (req, res) => {
-    
+
+// Add Review
+app.get('/add-review', (req, res) => {
+    res.render('addReview.ejs');
+});
+app.post('/post-review', (req, res) => {
+    var reviewImage = req.body.review-img;
+    var reviewTitle = req.body.review-title;
+    var review = req.body.review;
 });
 
 // About Page
