@@ -140,7 +140,7 @@ app.get('/find-location', (req, res) => {
 });
 app.post('/location', (req, res) => {
     var location = req.body.location;
-    
+
     res.render('location.ejs');
 });
 
