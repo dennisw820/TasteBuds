@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 // }));
 app.use(bodyParser.urlencoded({extended: true}));
 // require static for static routes
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 app.use(express.static('private'));
 
 
@@ -34,16 +34,25 @@ app.get('/signin', function(req,res){
     res.render('signin.ejs');
 });
 app.post('/signin', function(req,res, length){
-    // const connection = require('connection');
-    // const connection = mysql.createConnection({
+    // const connection = require('./private/Javascript/config.js');
+    // connection.connect();
+    // const connection =  mysql.createConnection({
     //     host: process.env.HOST,
     //     user: process.env.USER,
     //     password: process.env.PASSWORD,
     //     database: process.env.DATABASE
     // });
-    // var userName = req.body.userName;
-    // var password = req.body.password;
+    // connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
+    //     if (err) {
+    //         throw err;
+    //     }
+    //     else {
+    //         console.log('The solution is: ', rows[0].solution)
+    //     }
+    // })
     
+    // connection.end()
+    // 
     // if(userName && password) {
     //     console.log(connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [userName, password], function(error, results, fields) {
     //         if (results) {
