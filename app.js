@@ -21,6 +21,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname));
 app.use(express.static('private'));
 
+var msg = '';
+
 
 // Landing Route
 app.get('/', function(req, res){
@@ -114,21 +116,22 @@ app.post('/', function(req, res){
 });
 
 // Menu
-var replaceTemplate = (temp, el) => {
-    var output =  temp.replace(/{%FOOD_NAME%}/g, el.name);
-    output = output.replace(/{%FOOD_DESCRIPTION%}/g, el.description);
-    return output;
-}
-var foodTemplate = fs.readFileSync('./views/partials/food.ejs');
-var foodAPI = fs.readFileSync('./food-api.json');
+// var replaceTemplate = (temp, el) => {
+//     var output =  temp.replace(/{%FOOD_NAME%}/g, el.name);
+//     output = output.replace(/{%FOOD_DESCRIPTION%}/g, el.description);
+//     return output;
+// }
+// var foodTemplate = fs.readFileSync('./views/partials/food.ejs');
+// var foodAPI = fs.readFileSync('./food-api.json');
 
 
 app.get('/food-menu', function(req,res){
-    food = JSON.parse(foodAPI);
-    dishes = food.map((el) => {
-        return replaceTemplate(foodTemplate, el).join('');
-    });
-    console.log(dishes);
+    // food = JSON.parse(foodAPI);
+    // dishes = food.map((el) => {
+    //     return replaceTemplate(foodTemplate, el).join('');
+    // });
+    // console.log(dishes);
+    var dishes = '';
     res.render('foodmenu.ejs', {dishes:dishes});
 });
 
@@ -142,7 +145,8 @@ app.get('/checkout', function(req,res){
 });
 app.post('/order', function(req,res){
     // set timeout
-    res.render('order-success.ejs');
+    msg = `Your order was successfully placed. You will receive an email regarding your order confirmation shortly.`;
+    res.render('confirmation.ejs', {msg});
 });
 
 // Cart 
@@ -174,19 +178,22 @@ app.post('/questions', (req, res) => {
 });
 
 // Reviews
-app.get('/reviews', (req, res) => {
+app.get('/testimonials', (req, res) => {
     res.render('reviews.ejs');
 });
 
 // Add Review
-app.get('/add-review', (req, res) => {
-    res.render('addReview.ejs');
-});
-app.post('/post-review', (req, res) => {
-    var reviewImage = req.body.review-img;
-    var reviewTitle = req.body.review-title;
-    var review = req.body.review;
-});
+app.route('/review')
+    .get((req, res) => {
+        res.render('addReview.ejs');
+    })
+    .post((req, res) => {
+        msg = `Your review was successfully posted. Thank you!`;
+        // var reviewImage = req.body.review-img;
+        // var reviewTitle = req.body.review-title;
+        // var review = req.body.review;
+        res.render('confirmation.ejs', {msg})
+    });
 
 // About Page
 app.get('/about', (req, res) => {
@@ -197,12 +204,14 @@ app.post('', (req, res) => {
 });
 
 // Contact
-app.get('/contact', (req, res) => {
-    res.render('contact');
-});
-app.post('', (req, res) => {
-
-});
+app.route('/contact')
+    .get((req, res) => {
+        res.render('contact');
+    })
+    .post((req, res) => {
+        msg = `We have received your request and will be contacting you soon.`;
+        res.render('confirmation.ejs', {msg})
+    });
 
 app.listen(process.env.PORT, function(){
     console.log(`Server running on port ${process.env.PORT}.`);

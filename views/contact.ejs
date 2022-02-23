@@ -1,28 +1,56 @@
-<%- include('partials/navbar.ejs') %>
-    <!--Contact Beginning-->
-    <div id="contact" class="p-5 bg-success">
-        <h1 id="" class="">Contact Us</h1>
-        <p id="" class="text-center">We'd like to hear from you!</p>
-        <form id="" class="input-group" action="/contact" method="POST" autocapitalize="on" autocomplete="on">
-            <div class="input-group m-3">
-                <input name="fName" id="" class="form-control rounded" type="text" placeholder="First Name" maxlength="70" title="Please enter your first name." required> 
-                <br>
-                <input name="lName" id="" class="form-control rounded" type="text" placeholder="Last Name" maxlength="70" title="Please enter your last name." required>
-            </div>
-            <div class="input-group m-3 row">
-                <input name="email" id="" class="form-control rounded" type="email" placeholder="Email" title="Please enter your email." required>
-                <input name="tel" id="" class="form-control rounded" type="tel" placeholder="Phone" maxlength="10" title="Please enter your phone number." required>
-            </div>
-            <div class="input-group m-3">
-                <input name="contact-sub" id="contact-sub" class="form-control rounded" type="text" placeholder="Subject" maxlength="255" title="Please include a subject for your message." required>
-            </div>
-            <div class="input-group m-3">
-                <textarea name="contact-msg" id="contact-msg" class="form-control rounded" style="border: 1px black solid; " rows="10" placeholder="Message" maxlength="255" title="Please write a message to submit." required></textarea>
-            </div>
-            <div class="input-group m-3">
-                <input name="contact-btn" id="contact-btn" class="btn btn-block btn-primary rounded" type="submit" value="Send Message">
-            </div>
-        </form>
+<%- include ('partials/navbar.ejs') %> 
+<!-- Add gradient background -->
+    <div id="contact-bg" class="container-fluid p-5">
+        <!-- Change background to #ffffff -->
+        <div class="row mb-3 text-center">
+            <h1 class="">Peak Development Contact</h1>
+            <p class="fs-5">We'd love to help you make your dreams come true. Let's talk solutions.</p>
+        </div>
+        <div id="contact-box" class="row p-4 bg-light rounded shadow">
+            
+                <form action="/contact" method="POST" class="input-group-lg">
+                    <div class="row">
+                        <div class="col">
+                            <label for="" class="mb-2 float-start">First Name</label>
+                            <br>
+                            <input name="firstName" type="text" class="form-control-lg mb-3 w-100" placeholder="John" required>
+                        </div>
+                        <div class="col">
+                            <label for="" class="mb-2 float-start">Last Name</label>
+                            <br>
+                            <input name="lastName" type="text" class="form-control-lg mb-3 w-100" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="" class="mb-2 float-start">Phone Number</label>
+                            <br>
+                            <input name="phone" type="tel" class="form-control-lg mb-3 w-100" placeholder="1234567890" required>
+                        </div>
+                        <div class="col">
+                            <label for="" class="mb-2 float-start">Email</label>
+                            <br>
+                            <input name="email" type="email" class="form-control-lg mb-3 w-100" placeholder="example@mail.com" required>
+                        </div>                
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="" class="mb-2 float-start">Subject</label>
+                            <br>
+                            <input name="subject" type="text" class="form-control-lg mb-4 w-100" placeholder="Subject" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Set box resize to none -->
+                        <div class="col">
+                            <textarea name="message" id="" class="mb-3 p-3 w-100" cols="30" rows="10" placeholder="Message goes here..." required></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-block btn-dark p-4" type="submit">Contact Us</button>
+                    </div>
+                </form>
+
+        </div>
     </div>
-    <!--Contact Ending-->
-<%- include('partials/footer.ejs') %>
+<%- include ('partials/footer.ejs') %> 
