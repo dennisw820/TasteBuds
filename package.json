@@ -4,7 +4,8 @@
   "description": "This is a restaurant website.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "author": "Dennis Williams",
   "license": "ISC",
@@ -18,7 +19,6 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.12",
     "session": "^0.1.0",
-    "static": "^2.0.0",
     "twilio": "^3.67.2"
   },
   "engines": {

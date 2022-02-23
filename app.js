@@ -4,6 +4,7 @@ const mysql = require('mysql');
 // const mysql = require(__dirname + '/private/Javascript/config.js');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const fs = require('fs');
 
 const app = express();
 
@@ -111,17 +112,28 @@ app.get('/profile', function(req,res){
 app.post('/', function(req, res){
 
 });
+
 // Menu
+var replaceTemplate = (temp, el) => {
+    var output =  temp.replace(/{%FOOD_NAME%}/g, el.name);
+    output = output.replace(/{%FOOD_DESCRIPTION%}/g, el.description);
+    return output;
+}
+var foodTemplate = fs.readFileSync('./views/partials/food.ejs');
+var foodAPI = fs.readFileSync('./food-api.json');
+
+
 app.get('/food-menu', function(req,res){
-    var dishes = [
-        {"name": 'Egg', "description": "Some quick example text to build on the card title and make up the bulk of the card's content.", "image": "https://www.google.com/cat"},
-        {"name": 'Fish', "description": "Some quick example text to build on the card title and make up the bulk of the card's content.", "image": "https://www.google.com/cat"},
-        {"name": 'Onions', "description": "Some quick example text to build on the card title and make up the bulk of the card's content.", "image": "https://www.google.com/cat"}];
-    
+    food = JSON.parse(foodAPI);
+    dishes = food.map((el) => {
+        return replaceTemplate(foodTemplate, el).join('');
+    });
+    console.log(dishes);
     res.render('foodmenu.ejs', {dishes:dishes});
 });
-app.post('/orders', function(req,res){
 
+app.post('/search', function(req,res){
+    
 });
 
 // Checkout
