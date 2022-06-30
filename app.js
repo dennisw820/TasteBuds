@@ -1,9 +1,21 @@
-// Resources 
+// Dependencies 
 const express = require('express');
-const mysql = require('mysql');
+const router = require('./api/routes/router.js');// Contact
+var msg = '';
+app.route('/contact')
+    .get((req, res) => {
+        res.render('contact');
+    })
+    .post((req, res) => {
+        msg = `We have received your request and will be contacting you soon.`;
+        res.render('confirmation.ejs', {msg})
+    });
+// const mongodb = require('./.config/mongodb');
+const passport = require('./.config/passport.js');
 // const mysql = require(__dirname + '/private/Javascript/config.js');
+const mysql = require('mysql');
+var cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
-const session = require('express-session');
 const fs = require('fs');
 
 const app = express();
@@ -16,6 +28,8 @@ app.set('view engine', 'ejs');
 //     resave: true,
 //     saveUninitialized: true
 // }));
+
+// Middleware
 app.use(bodyParser.urlencoded({extended: true}));
 // require static for static routes
 app.use(express.static(__dirname));
