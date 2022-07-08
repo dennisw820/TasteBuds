@@ -5,6 +5,7 @@ const json = require('json');
 
 // Route Handlers
 
+    // Menu
 // Get Request: All
 exports.getItems = async (req, res, err, results, next) => {
     try {
@@ -182,3 +183,74 @@ exports.deleteItem = async (req, res, id, err, next) => {
     db.destroy();
     next();
 }
+
+    // Signin
+    exports.signIn = async (req, res,err, id, next) => {
+
+    }
+    
+    // Signup
+    exports.signUp = async (req, res,err, id, next) => {
+        var userName = req.body.userName;
+        var email = req.body.email;
+        var password = req.body.password;
+        var password2 = req.body.password2;
+        var ackw = req.body.ackw;
+    }
+
+    // Edit Profile
+    exports.updateProfile = async (req, res, err, id, next) => {
+
+    }
+
+    // Password Reset
+    exports.resetPassword = async (req, res, err, id, next) => {
+
+    }
+
+    // Forgot Password
+    exports.forgotPassword = async (req, res, err, id, next) => {
+
+    }
+
+    // Commerce
+    exports.processPayment = async (req, res, err, id, next) => {
+
+    }
+
+    exports.checkoutConfirmation = async (req, res, err, id, next) => {
+        // set timeout
+        msg = `Your order was successfully placed. You will receive an email regarding your order confirmation shortly.`;
+        res.render('confirmation.ejs', {msg});
+    }
+
+    exports.addToCart = async (req, res, err, id, next) => {
+
+    }
+
+    // Location
+    exports.locate = async (req, res,err, id, next) => {
+        var location = req.body.location;
+
+        res.render('location.ejs');
+    }
+
+    // Help
+    exports.submitHelpRequest = async (req, res, err, id, next) => {
+        var query = req.body.query;
+    }
+
+    // Reviews
+    exports.postReview = async (req, res, err, id, next) => {
+        msg = `Your review was successfully posted. Thank you!`;
+        // var reviewImage = req.body.review-img;
+        // var reviewTitle = req.body.review-title;
+        // var review = req.body.review;
+        res.render('confirmation.ejs', {msg})
+    }
+
+    // Contact
+    exports.contact = async (req, res, err, id, next) => {
+        msg = `We have received your request and will be contacting you soon.`;
+        res.render('confirmation.ejs', {msg});
+    }
